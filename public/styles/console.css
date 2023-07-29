@@ -1,0 +1,57 @@
+.playground {
+  width: 100%;
+  height: 100vh;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.playground .container {
+  width: 100%;
+}
+.playground .container .question_number {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+.playground .container .question {
+  text-align: center;
+  font-size: 50px;
+  font-weight: 800;
+  margin-top: 0;
+}
+.playground .container .selects {
+  width: 600px;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+.playground .container .selects .select {
+  width: 50%;
+  text-align: center;
+  font-weight: 700;
+  font-size: 35px;
+}
+.playground .container .results {
+  width: 600px;
+  margin-right: auto;
+  margin-left: auto;
+  flex-wrap: wrap;
+  font-weight: 800;
+  font-size: 40px;
+  margin-top: 30px;
+}
+.playground .container .results .user_answer {
+  float: left;
+  color: var(--quiz-theme-color);
+}
+.playground .container .results .correct_answer {
+  float: right;
+  color: #1a8870;
+}
+.playground .container .hidden-result .user_answer {
+  color: #fff;
+}
+.playground .container .hidden-result .correct_answer {
+  color: #fff;
+}/*# sourceMappingURL=console.css.map */

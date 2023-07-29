@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>console</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/console.css">
+</head>
+
+<body>
+    <section class="joinRoomArea">
+        <form id="joinRoom" autocomplete="off">
+            <h1>ルームに参加する</h1>
+            <div>
+                <input type="number" required placeholder="ルーム番号を入力" id="roomId">
+            </div>
+            <div>
+                <button>送信</button>
+            </div>
+        </form>
+    </section>
+    <section class="waitForStart">
+        <div class="mainBlock">
+            <h1>参加したルーム番号は</h1>
+            <h1 class="roomNumber">000</h1>
+            <p>
+                ルーム番号の入力を間違えた場合
+                <br>
+                <button class="rewriteRoomId" id="rewriteRoomId">修正する</button>
+            </p>
+            <div>
+                <button class="start_quiz" id="start_quiz">クイズを開始</button>
+            </div>
+        </div>
+    </section>
+    <section class="playground">
+
+        <div class="container">
+            <div id="question_number" class="question_number"></div>
+            <p class="question" id="question">
+            </p>
+            <div class="selects">
+                <div class="select"></div>
+                <div class="select"></div>
+                <div class="select"></div>
+                <div class="select"></div>
+            </div>
+            <div class="results hidden-result" id="result_area">
+                <p class="user_answer" id="user_answer"></p>
+                <p class="correct_answer" id="correct_answer"></p>
+            </div>
+        </div>
+    </section>
+    <section id ="finished">
+        終了
+    </section>
+    <div class="answer_view" id="answer_view">
+        <div class="container">
+            <div class="icon" id="answer_view_icon">
+                ⭕
+            </div>
+            <div class="text" id="answer_view_text">正解</div>
+        </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="scripts/question.js"></script>
+    <script src="scripts/util.js"></script>
+    <script src="scripts/room_connection.js"></script>
+    <script src="scripts/console.js"></script>
+
+</body>
+
+</html>
