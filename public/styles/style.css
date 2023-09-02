@@ -5,6 +5,7 @@
 
 body {
   margin: 0;
+  font-family: sans-serif;
 }
 
 .joinRoomArea {
@@ -125,4 +126,8 @@ body {
   font-size: 60px;
   color: var(--quiz-theme-color);
   font-weight: 900;
+}
+
+#finished {
+  display: none;
 }/*# sourceMappingURL=style.css.map */

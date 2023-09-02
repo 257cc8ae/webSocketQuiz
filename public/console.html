@@ -36,24 +36,29 @@
         </div>
     </section>
     <section class="playground">
+        <div class="progress_bar" id="progress_bar">
 
+        </div>
         <div class="container">
-            <div id="question_number" class="question_number"></div>
-            <p class="question" id="question">
-            </p>
+            <div class="question_area">
+                <div id="question_number" class="question_number"></div>
+                <p class="question" id="question">
+                </p>
+            </div>
             <div class="selects">
                 <div class="select"></div>
                 <div class="select"></div>
                 <div class="select"></div>
-                <div class="select"></div>
             </div>
-            <div class="results hidden-result" id="result_area">
-                <p class="user_answer" id="user_answer"></p>
-                <p class="correct_answer" id="correct_answer"></p>
-            </div>
+            
         </div>
+        <div class="results" id="result_area">
+            <div class="result_title">正答</div>
+            <div class="correct_answer" id="correct_answer">Have a nice day</div>
+        </div>
+        <div class="timer" id="timer">30</div>
     </section>
-    <section id ="finished">
+    <section id="finished">
         終了
     </section>
     <div class="answer_view" id="answer_view">

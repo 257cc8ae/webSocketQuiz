@@ -19,6 +19,10 @@ app.get("/styles/:file", (req, res)=>{
 app.get("/scripts/:file", (req, res)=>{
   res.sendFile(DOCUMENT_ROOT + "/scripts/" + req.params.file);
 });
+app.get("/imgs/:file", (req, res)=>{
+  res.sendFile(DOCUMENT_ROOT + "/imgs/" + req.params.file);
+});
+
 
 io.on("connection", (socket)=>{
   console.log("A user connected.");

@@ -15,6 +15,6 @@ function answer_show(result,id) {
   }
 
   if (id != false) {
-    setTimeout(function () {socket.emit("next_req", id); }, 2000);
+    setTimeout(function () {socket.emit("next_req", id); }, 1000);
   }
 }

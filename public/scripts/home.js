@@ -44,7 +44,9 @@ socket.on("response", (data) => {
 });
 
 socket.on("next", (data) => {
-    question_number += 1;
-    document.getElementById("answer_view").style.display = "none";
-    generateQuestion(question_number, questions)
+    setTimeout(() => {
+        question_number += 1;
+        document.getElementById("answer_view").style.display = "none";
+        generateQuestion(question_number, questions)
+    }, 3000);
 });
