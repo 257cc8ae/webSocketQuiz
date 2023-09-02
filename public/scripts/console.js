@@ -1,7 +1,9 @@
 let question_number = 0;
 let correct_answer_count = 0;
 let timer = { state: false, time: 31 };
-
+document.getElementById("fullScreenBtn").addEventListener("click", function () {
+    document.body.requestFullscreen();
+});
 function generateQuestionConsole(number, quiz_array) {
     if (quiz_array.length < number + 1) {
         document.getElementById("finished").style.display = "flex";
