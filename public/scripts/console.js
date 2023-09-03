@@ -3,22 +3,19 @@ let correct_answer_count = 0;
 let timer = { state: false, time: 31 };
 let client = false;
 function generateQuestionConsole(number, quiz_array) {
+    console.log(number)
     if (number < 10) {
         let k, l;
-        if (number <= 3) {
+        if (number <= 4) {
             k = 0;
             l = 0;
-        } else if (number <= 5) {
-            k = 1;
-            l = 4;
         } else if (number <= 7) {
+            k = 1;
+            l = 5;
+        } else if (number <= 10) {
             k = 2;
-            l = 6;
-        } else if (number <= 9) {
-            k = 3;
             l = 8;
         }
-        console.log(selected_questions)
         document.getElementById("question_number").textContent = `第${number + 1}問`;
         let selects = document.querySelectorAll(".selects .select");
         for (let i = 0; i < selects.length; i++) {
@@ -31,14 +28,14 @@ function generateQuestionConsole(number, quiz_array) {
         console.log(answer)
         document.getElementById("result_area").style.display = "none";
     } else {
-        alert("finished")
+        document.querySelector(".playground").style.display = "none";
+        document.getElementById("finished").style.display = "flex";
     }
 };
 
 socket.on("started", (data) => {
     selected_questions = data.question_data;
     console.log(selected_questions)
-    console.log("k")
     generateQuestionConsole(question_number, questions);
     document.querySelector(".waitForStart").style.display = "none";
     document.querySelector(".playground").style.display = "flex";
@@ -87,7 +84,7 @@ socket.on("next", (data) => {
         generateQuestionConsole(question_number, questions);
         generateProgressBar(question_number);
         timer.state = true;
-        timer.time = 2;
+        timer.time = 31;
         document.getElementById("result_area").style.display = "none";
     }, 3000);
 

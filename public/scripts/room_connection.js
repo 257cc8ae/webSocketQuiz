@@ -7,6 +7,7 @@ const searchParams = new URLSearchParams(window.location.search)
 if (searchParams.has('room_id')) {
   document.getElementById("roomId").value = searchParams.get("room_id");
   document.getElementById("roomId").style.display = "none";
+  document.getElementById("rewriteRoomIdArea").style.display="none"
 }
 
 document.getElementById("joinRoom").addEventListener("submit", (e) => {

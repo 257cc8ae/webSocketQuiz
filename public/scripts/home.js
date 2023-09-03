@@ -49,17 +49,14 @@ function selectQuestions(mode) {
 function generateQuestion(number, quiz_array) {
     if (number < 10) {
         let k, l;
-        if (number <= 3) {
+        if (number <= 4) {
             k = 0;
             l = 0;
-        } else if (number <= 5) {
-            k = 1;
-            l = 4;
         } else if (number <= 7) {
+            k = 1;
+            l = 5;
+        } else if (number <= 10) {
             k = 2;
-            l = 6;
-        } else if (number <= 9) {
-            k = 3;
             l = 8;
         }
         document.getElementById("question_number").textContent = `第${number + 1}問`;
@@ -72,7 +69,8 @@ function generateQuestion(number, quiz_array) {
         };
         answer = quiz_array[selected_questions[k].level][selected_questions[k].question_ids[number - l]].answer
     } else {
-        alert("finished")
+        document.querySelector(".playground").style.display = "none";
+        document.getElementById("finished").style.display = "flex";
     }
 };
 
