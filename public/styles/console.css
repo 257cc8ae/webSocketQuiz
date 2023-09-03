@@ -114,16 +114,14 @@
   background-color: #3954E4;
 }
 .playground .progress_bar .progress_count[isColorful="5"]::after,
-.playground .progress_bar .progress_count[isColorful="6"]::after {
+.playground .progress_bar .progress_count[isColorful="6"]::after,
+.playground .progress_bar .progress_count[isColorful="7"]::after {
   background-color: #238D7F;
 }
-.playground .progress_bar .progress_count[isColorful="7"]::after,
-.playground .progress_bar .progress_count[isColorful="8"]::after {
-  background-color: #E19630;
-}
+.playground .progress_bar .progress_count[isColorful="8"]::after,
 .playground .progress_bar .progress_count[isColorful="9"]::after,
 .playground .progress_bar .progress_count[isColorful="10"]::after {
-  background-color: #e13f30;
+  background-color: #E19630;
 }
 .playground .container {
   width: 100vw;

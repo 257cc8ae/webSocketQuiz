@@ -6,12 +6,12 @@ function generateQuestionConsole(number, quiz_array) {
     console.log(number)
     if (number < 10) {
         let k, l;
-        if (number <= 4) {
+        if (number <= 3) {
             k = 0;
             l = 0;
         } else if (number <= 7) {
             k = 1;
-            l = 5;
+            l = 4;
         } else if (number <= 10) {
             k = 2;
             l = 8;
