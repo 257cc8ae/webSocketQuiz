@@ -30,7 +30,6 @@ io.on("connection", (socket) => {
 
     if (data.previous_id != "") {
       socket.leave(data.previous_id);
-      console.log("left")
     };
     socket.join(data.id);
     io.to(data.id).emit("joined", {id: data.id })
@@ -38,7 +37,6 @@ io.on("connection", (socket) => {
   // クイズスタート
   socket.on("start", (id) => {
     io.to(id).emit("q_req", "")
-    console.log("k")
   });
   socket.on("q_res", (data) => {
     io.to(data.id).emit("started",{question_data: data.question_data } )

@@ -87,7 +87,7 @@ function selectMode(modeValue) {
             element.removeAttribute("disabled");
         }
     }
-    document.getElementById("id").value = modeValue
+    document.getElementById("mode").value = modeValue
     // ボタンのテキストを変更
     document.querySelector(".select_mode_button").textContent = modeName[modeValue]
 }

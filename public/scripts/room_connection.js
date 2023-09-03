@@ -33,10 +33,8 @@ document.getElementById("rewriteRoomId").addEventListener("click", () => {
 
 socket.on("q_req", (data) => {
   if (client) {
-    console.log(document.getElementById("mode").value)
 
     let questionArr = selectQuestions(document.getElementById("mode").value);
-    console.log(questionArr)
     socket.emit("q_res", { id: room_id, question_data: questionArr });
   }
 });
