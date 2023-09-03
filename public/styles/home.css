@@ -18,7 +18,7 @@
 .joinRoomArea #joinRoom h1 {
   margin-top: 0;
   text-align: center;
-  font-weight: bold;
+  font-weight: 900;
   font-size: 23px;
 }
 .joinRoomArea #joinRoom form {
@@ -34,13 +34,14 @@
   transition: all 0.3s ease-out;
   font-size: 16px;
   font-weight: bold;
+  margin-bottom: 20px;
 }
 .joinRoomArea #joinRoom input:focus {
   border-color: var(--theme-color);
   outline: none;
 }
 .joinRoomArea #joinRoom .select_mode_button {
-  margin-top: 20px;
+  min-width: 300px;
   border-radius: 5px;
   padding: 10px 20px 10px 10px;
   box-sizing: border-box;

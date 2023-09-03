@@ -1,24 +1,50 @@
 let question_number = 0;
 let correct_answer_count = 0;
 let timer = { state: false, time: 31 };
-
+let client = false;
 function generateQuestionConsole(number, quiz_array) {
-    if (quiz_array.length < number + 1) {
-        document.getElementById("finished").style.display = "flex";
-        document.querySelector(".playground").style.display = "none";
-    } else {
+    if (number < 10) {
+        let k, l;
+        if (number <= 3) {
+            k = 0;
+            l = 0;
+        } else if (number <= 5) {
+            k = 1;
+            l = 4;
+        } else if (number <= 7) {
+            k = 2;
+            l = 6;
+        } else if (number <= 9) {
+            k = 3;
+            l = 8;
+        }
+        console.log(selected_questions)
         document.getElementById("question_number").textContent = `第${number + 1}問`;
         let selects = document.querySelectorAll(".selects .select");
         for (let i = 0; i < selects.length; i++) {
             const select = selects[i];
-            select.textContent = `${i + 1}. ${quiz_array[number].selects[i]}`
+            select.textContent = quiz_array[selected_questions[k].level][selected_questions[k].question_ids[number - l]].selects[i];
         };
-        document.getElementById("question").textContent = quiz_array[number].main
-        document.getElementById("result_area").setAttribute("class", "results hidden-result");
+        document.getElementById("question").textContent = quiz_array[selected_questions[k].level][selected_questions[k].question_ids[number - l]].question;
+        let answer = quiz_array[selected_questions[k].level][selected_questions[k].question_ids[number - l]].answer;
+        document.getElementById("correct_answer").textContent = answer;
+        console.log(answer)
+        document.getElementById("result_area").style.display = "none";
+    } else {
+        alert("finished")
     }
-
 };
 
+socket.on("started", (data) => {
+    selected_questions = data.question_data;
+    console.log(selected_questions)
+    console.log("k")
+    generateQuestionConsole(question_number, questions);
+    document.querySelector(".waitForStart").style.display = "none";
+    document.querySelector(".playground").style.display = "flex";
+});
+
+//  進行状況を生成する関数
 function generateProgressBar(current_question) {
     let progressBar = document.getElementById("progress_bar");
     progressBar.innerHTML = ""
@@ -34,21 +60,16 @@ function generateProgressBar(current_question) {
     };
 }
 
-
 socket.on("response", (data) => {
     timer.state = false;
-    document.getElementById("result_area").setAttribute("class", "results");
-    document.getElementById("correct_answer").textContent = `${questions[question_number].answer}`;
-    if (data.answer == questions[question_number].answer) {
-        correct_answer_count += 1
+    if (data.answer) {
         answer_show(true, room_id);
     } else {
-        answer_show(false, room_id);
+        answer_show(false, false);
     }
 });
 
 // 本番環境では下のイベント内に記述するのが望ましい
-generateQuestionConsole(question_number, questions)
 generateProgressBar(question_number)
 
 //  問題が来たとき(最初のボタン)
@@ -59,22 +80,24 @@ document.getElementById("start_quiz").addEventListener("click", function () {
 });
 //通信で次への遷移
 socket.on("next", (data) => {
-    document.getElementById("answer_view").style.display = "none";
+    question_number += 1;
+
     setTimeout(() => {
-        question_number += 1;
+        console.log(question_number)
         generateQuestionConsole(question_number, questions);
         generateProgressBar(question_number);
         timer.state = true;
-        timer.time = 31;
+        timer.time = 2;
+        document.getElementById("result_area").style.display = "none";
     }, 3000);
 
 });
-
+// タイマーの処理
 setInterval(() => {
     let timerElement = document.getElementById("timer");
     if (timer.state) {
         timer.time -= 1;
-        if (timer.time + 1 === 0) {
+        if (timer.time < 0) {
             timerElement.style.display = "none";
             timer.state = false;
             socket.emit("answer", { id: room_id, q_number: question_number, answer: "" });

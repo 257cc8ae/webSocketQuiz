@@ -15,7 +15,22 @@ function answer_show(result, id) {
     document.getElementById("answer_view").style.display = "flex";
   }
 
-  if (id != false) {
-    setTimeout(function () { socket.emit("next_req", id); }, 1000);
-  }
+  setTimeout(function () {
+    document.getElementById("answer_view").style.display = "none";
+    if (client === false) {
+      document.getElementById("result_area").style.display = "flex";
+    }
+    setTimeout(() => {
+      if (client === false) {
+        document.getElementById("result_area").style.display = "none";
+      }
+      if (result === false) {
+        document.querySelector(".playground").style.display = "none";
+        document.getElementById("finished").style.display = "flex";
+      } else if (client) {
+        socket.emit("next_req", id);
+      };
+    }, 2000);
+  }, 500);
+
 }

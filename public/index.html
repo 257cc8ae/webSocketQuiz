@@ -16,15 +16,16 @@
 <body>
     <section class="joinRoomArea">
         <form id="joinRoom" autocomplete="off">
-            <h1>整理券番号を入力してください</h1>
+            <h1>クイズをスタートする</h1>
             <div>
                 <input type="number" required placeholder="整理番号を入力してください" id="roomId" >
+                <input type="hidden" value="easy" id="mode" >
                 <button class="select_mode_button" type="button" onclick="modeSelectionModal(true)">
                     イージー
                 </button>
             </div>
             <div  class="btn_area">
-                <button class="joinRoomBtn">送信</button>
+                <button class="joinRoomBtn">次へ</button>
             </div>
         </form>
         <div class="select_mode_modal" id="select_mode_modal">
