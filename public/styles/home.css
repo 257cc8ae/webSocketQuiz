@@ -1,6 +1,156 @@
+@charset "UTF-8";
+.joinRoomArea {
+  width: 100%;
+  height: 100svh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: rgb(93, 55, 85);
+  background: linear-gradient(153deg, rgb(93, 55, 85) 0%, rgb(13, 13, 91) 32%, rgb(7, 7, 34) 100%);
+}
+.joinRoomArea #joinRoom {
+  background: #fff;
+  color: #000;
+  padding: 20px;
+  border-radius: 5px;
+}
+.joinRoomArea #joinRoom h1 {
+  margin-top: 0;
+  text-align: center;
+  font-weight: bold;
+  font-size: 23px;
+}
+.joinRoomArea #joinRoom form {
+  width: 90%;
+  max-width: 300px;
+}
+.joinRoomArea #joinRoom input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #c3c3c3;
+  border-radius: 5px;
+  transition: all 0.3s ease-out;
+  font-size: 16px;
+  font-weight: bold;
+}
+.joinRoomArea #joinRoom input:focus {
+  border-color: var(--theme-color);
+  outline: none;
+}
+.joinRoomArea #joinRoom .select_mode_button {
+  margin-top: 20px;
+  border-radius: 5px;
+  padding: 10px 20px 10px 10px;
+  box-sizing: border-box;
+  font-size: 20px;
+  font-weight: 900;
+  background: none;
+  color: #000;
+  background-color: #fff;
+  border: 2px solid #c3c3c3;
+  width: 100%;
+  text-align: left;
+  position: relative;
+}
+.joinRoomArea #joinRoom .select_mode_button::before {
+  content: "モード";
+  padding: 5px 8px;
+  background: #54951b;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: normal;
+  color: #fff;
+  margin-right: 5px;
+}
+.joinRoomArea #joinRoom .select_mode_button::after {
+  content: "変更";
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  padding-left: 20px;
+  border-left: 2px solid #c3c3c3;
+  color: #1e1e1e;
+  font-weight: normal;
+}
+.joinRoomArea #joinRoom .joinRoomBtn {
+  background: var(--theme-color);
+  color: #fff;
+  font-weight: bold;
+  border: 0;
+  width: 100%;
+  padding: 10px 0;
+  margin-top: 20px;
+  font-size: 16px;
+  border-radius: 20px;
+  transition: all 0.3s ease-out;
+}
+.joinRoomArea #joinRoom .joinRoomBtn:hover {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+}
+.joinRoomArea .select_mode_modal {
+  display: none;
+  position: fixed;
+  width: 100svw;
+  height: 100svh;
+  background: rgb(93, 55, 85);
+  background: linear-gradient(153deg, rgb(93, 55, 85) 0%, rgb(13, 13, 91) 32%, rgb(7, 7, 34) 100%);
+  color: #fff;
+}
+.joinRoomArea .select_mode_modal button {
+  background: var(--theme-color);
+  color: #fff;
+  font-weight: bold;
+  width: 100px;
+  border: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  border-radius: 20px;
+  transition: all 0.3s ease-out;
+}
+.joinRoomArea .select_mode_modal button:hover {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+}
+.joinRoomArea .select_mode_modal button:disabled {
+  background: #7a7a7a;
+}
+.joinRoomArea .select_mode_modal .modes_detail_area {
+  width: 100%;
+  height: calc(100svh - 140px);
+  overflow-y: scroll;
+}
+.joinRoomArea .select_mode_modal .mode_detail_card {
+  width: 90%;
+  background-color: #fff;
+  color: #000;
+  margin-bottom: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: left;
+  border-radius: 5px;
+}
+.joinRoomArea .select_mode_modal .mode_detail_card h2 {
+  display: inline-block;
+  margin: 0;
+  font-size: 26px;
+  font-weight: 900;
+  padding-bottom: 5px;
+  border-bottom: #54951b 7px solid;
+}
+.joinRoomArea .select_mode_modal .decide_area {
+  text-align: center;
+  padding: 10px 0;
+}
+.joinRoomArea .select_mode_modal .btn_area {
+  text-align: center;
+}
+
 .playground {
   width: 100%;
-  height: 100vh;
+  height: 100svh;
   display: none;
   justify-content: center;
   align-items: center;
@@ -48,5 +198,5 @@
 #finished {
   display: none;
   width: 100%;
-  height: 100vh;
+  height: 100svh;
 }/*# sourceMappingURL=home.css.map */

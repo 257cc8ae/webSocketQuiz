@@ -1,5 +1,5 @@
 let question_number = 0;
-
+let mode = "easy";
 function generateQuestion(number, quiz_array) {
 
     if (quiz_array.length < number + 1) {
@@ -17,6 +17,31 @@ function generateQuestion(number, quiz_array) {
         document.getElementById("answer").setAttribute("disabled", true);
     }
 };
+
+function selectMode(modeValue) {
+    mode = modeValue;
+    // ボタンのdisabledを変更
+    let elements = document.querySelectorAll(".decide_mode");
+    for (let i = 0; i < elements.length; i++) {
+        const element = elements[i];
+        if (element.getAttribute("value") === modeValue) {
+            element.setAttribute("disabled", true);
+        } else {
+            element.removeAttribute("disabled");
+        }
+    }
+    // ボタンのテキストを変更
+    document.querySelector(".select_mode_button").textContent=modeName[modeValue]
+}
+
+function modeSelectionModal(flag) {
+    const modal = document.getElementById("select_mode_modal");
+    if (flag) {
+        modal.style.display = "block";
+    } else {
+        modal.style.display = "none";
+    }
+}
 
 generateQuestion(question_number, questions)
 

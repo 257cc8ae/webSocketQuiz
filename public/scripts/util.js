@@ -2,8 +2,9 @@ function $(selector) {
   return (document.querySelector(selector));
 }
 
+let modeName = { "easy": "イージー", "normal": "ノーマル", "hard": "ハード" };
 
-function answer_show(result,id) {
+function answer_show(result, id) {
   if (result) {
     document.getElementById("answer_view_icon").textContent = "⭕";
     document.getElementById("answer_view_text").textContent = "正解";
@@ -15,6 +16,6 @@ function answer_show(result,id) {
   }
 
   if (id != false) {
-    setTimeout(function () {socket.emit("next_req", id); }, 1000);
+    setTimeout(function () { socket.emit("next_req", id); }, 1000);
   }
 }

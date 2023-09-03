@@ -1,16 +1,188 @@
+.joinRoomArea {
+    width: 100%;
+    height: 100svh;
+    display: flex; // default Status => flex
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: rgb(93, 55, 85);
+    background: linear-gradient(153deg, rgba(93, 55, 85, 1) 0%, rgba(13, 13, 91, 1) 32%, rgba(7, 7, 34, 1) 100%);
+
+    #joinRoom {
+        background: #fff;
+        color: #000;
+        padding: 20px;
+        border-radius: 5px;
+
+        h1 {
+            margin-top: 0;
+            text-align: center;
+            font-weight: bold;
+            font-size: 23px;
+        }
+
+        form {
+            width: 90%;
+            max-width: 300px;
+        }
+
+        input {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #c3c3c3;
+            border-radius: 5px;
+            transition: all 0.3s ease-out;
+            font-size: 16px;
+            font-weight: bold;
+
+            &:focus {
+                border-color: var(--theme-color);
+                outline: none;
+            }
+        }
+
+        .select_mode_button {
+            margin-top: 20px;
+            border-radius: 5px;
+            padding: 10px 20px 10px 10px;
+            box-sizing: border-box;
+            font-size: 20px;
+            font-weight: 900;
+            background: none;
+            color: #000;
+            background-color: #fff;
+            border: 2px solid #c3c3c3;
+            width: 100%;
+            text-align: left;
+            position: relative;
+
+            &::before {
+                content: "モード";
+                padding: 5px 8px;
+                background: #54951b;
+                border-radius: 5px;
+                font-size: 18px;
+                font-weight: normal;
+                color: #fff;
+                margin-right: 5px;
+            }
+
+            &::after {
+                content: "変更";
+                position: absolute;
+                right: 20px;
+                top: 10px;
+                padding-left: 20px;
+                border-left: 2px solid #c3c3c3;
+                color: #1e1e1e;
+                font-weight: normal;
+            }
+        }
+
+        .joinRoomBtn {
+            background: var(--theme-color);
+            color: #fff;
+            font-weight: bold;
+            border: 0;
+            width: 100%;
+            padding: 10px 0;
+            margin-top: 20px;
+            font-size: 16px;
+            border-radius: 20px;
+            transition: all 0.3s ease-out;
+
+            &:hover {
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+            }
+        }
+    }
+
+    .select_mode_modal {
+        display: none;
+        position: fixed;
+        width: 100svw;
+        height: 100svh;
+        background: rgb(93, 55, 85);
+        background: linear-gradient(153deg, rgba(93, 55, 85, 1) 0%, rgba(13, 13, 91, 1) 32%, rgba(7, 7, 34, 1) 100%);
+        color: #fff;
+
+        button {
+            background: var(--theme-color);
+            color: #fff;
+            font-weight: bold;
+            width: 100px;
+            border: 0;
+            padding: 10px 0;
+            font-size: 16px;
+            border-radius: 20px;
+            transition: all 0.3s ease-out;
+
+            &:hover {
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+            }
+
+            &:disabled {
+                background: #7a7a7a;
+            }
+        }
+
+        .modes_detail_area {
+            width: 100%;
+            height: calc(100svh - 140px);
+            overflow-y: scroll;
+        }
+
+        .mode_detail_card {
+            width: 90%;
+            background-color: #fff;
+            color: #000;
+            margin-bottom: 20px;
+            margin-right: auto;
+            margin-left: auto;
+            padding: 10px;
+            box-sizing: border-box;
+            text-align: left;
+            border-radius: 5px;
+
+            h2 {
+                display: inline-block;
+                margin: 0;
+                font-size: 26px;
+                font-weight: 900;
+                padding-bottom: 5px;
+                border-bottom: #54951b 7px solid;
+            }
+        }
+
+        .decide_area {
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .btn_area {
+            text-align: center;
+        }
+    }
+
+}
+
 .playground {
     width: 100%;
-    height: 100vh;
+    height: 100svh;
     display: none;
     justify-content: center;
     align-items: center;
+
     .container {
-        width:95%;
+        width: 95%;
         max-width: 600px;
         text-align: center;
+
         #question_number {
             font-size: 25px;
         }
+
         .selects {
             button {
                 width: 100%;
@@ -21,11 +193,13 @@
                 border-radius: 30px;
                 border: #a9a9a9 2px solid;
             }
+
             .selected {
                 color: var(--theme-color);
                 border-color: var(--theme-color);
             }
         }
+
         .answer {
             background: var(--theme-color);
             color: #fff;
@@ -37,9 +211,11 @@
             font-size: 16px;
             border-radius: 20px;
             transition: all 0.3s ease-out;
+
             &:disabled {
                 background-color: #a9a9a9;
             }
+
             &:hover {
                 box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
             }
@@ -50,5 +226,5 @@
 #finished {
     display: none;
     width: 100%;
-    height: 100vh;
+    height: 100svh;
 }
