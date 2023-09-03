@@ -167,15 +167,18 @@
 .playground .container .selects button {
   width: 100%;
   background: #fff;
+  font-weight: 700;
   font-size: 20px;
   padding: 10px 0;
   margin-top: 20px;
-  border-radius: 30px;
+  border-radius: 5px;
   border: #a9a9a9 2px solid;
+  color: #4d4d4d;
 }
 .playground .container .selects .selected {
-  color: var(--theme-color);
+  color: #2e570b;
   border-color: var(--theme-color);
+  background-color: #f4fdec;
 }
 .playground .container .answer {
   background: var(--theme-color);
@@ -185,8 +188,8 @@
   width: 100%;
   padding: 10px 0;
   margin-top: 40px;
-  font-size: 16px;
-  border-radius: 20px;
+  font-size: 20px;
+  border-radius: 5px;
   transition: all 0.3s ease-out;
 }
 .playground .container .answer:disabled {

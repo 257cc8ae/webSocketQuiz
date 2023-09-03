@@ -47,6 +47,7 @@ function selectQuestions(mode) {
 
 
 function generateQuestion(number, quiz_array) {
+    document.getElementById("answer").removeAttribute("disabled")
     if (number < 10) {
         let k, l;
         if (number <= 4) {
@@ -127,7 +128,7 @@ document.getElementById("answer").addEventListener("click", () => {
         socket.emit("answer", { id: room_id, q_number: question_number, answer: false });
 
     }
-    console.log(document.getElementById("answer_field").value)
+    document.getElementById("answer").setAttribute("disabled",true)
 });
 
 socket.on("response", (data) => {
@@ -140,8 +141,6 @@ socket.on("response", (data) => {
 
 socket.on("next", (data) => {
     question_number += 1;
-    setTimeout(() => {
-        document.getElementById("answer_view").style.display = "none";
-        generateQuestion(question_number, questions)
-    }, 3000);
+    generateQuestion(question_number, questions)
+        
 });

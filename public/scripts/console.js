@@ -59,6 +59,7 @@ function generateProgressBar(current_question) {
 
 socket.on("response", (data) => {
     timer.state = false;
+    document.getElementById("timer").style.display = "none";
     if (data.answer) {
         answer_show(true, room_id);
     } else {
@@ -78,16 +79,10 @@ document.getElementById("start_quiz").addEventListener("click", function () {
 //通信で次への遷移
 socket.on("next", (data) => {
     question_number += 1;
-
-    setTimeout(() => {
-        console.log(question_number)
-        generateQuestionConsole(question_number, questions);
-        generateProgressBar(question_number);
-        timer.state = true;
-        timer.time = 31;
-        document.getElementById("result_area").style.display = "none";
-    }, 3000);
-
+    generateQuestionConsole(question_number, questions);
+    generateProgressBar(question_number);
+    timer.state = true;
+    timer.time = 31;
 });
 // タイマーの処理
 setInterval(() => {
